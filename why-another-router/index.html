@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#10b068">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:site_name" content="Junctions" />
+    <meta property="og:type" content="article" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="james_k_nelson" />
+    <meta property="og:image" content="https://junctions.js.org/logo.png?2" />
+    <meta name="twitter:image" content="https://junctions.js.org/logo.png?2" />
+    <meta property="og:title" content="react-router vs. Junctions" />
+    <meta name="twitter:title" content="react-router vs. Junctions" />
+    <meta name="description" content="While react-router gives you the flexibility to work with native apps, Junctions is laser-focused on routing for websites and web apps." />
+    <meta property="og:description" content="While react-router gives you the flexibility to work with native apps, Junctions is laser-focused on routing for websites and web apps." />
+    <meta name="twitter:description" content="While react-router gives you the flexibility to work with native apps, Junctions is laser-focused on routing for websites and web apps." />
+    
+    <title>Why another Router?</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/main.8da2f98a.css" />
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"><div id="JUNCTIONS_STATIC" data-reactroot=""><div class="App"><div class="App-nav "><div class="Sidebar App-nav-sidebar"><a href="/" class="Sidebar-brand "><img src="/static/media/logo.b0b8d42b.svg" class="Sidebar-brand-logo" alt="logo"/><span class="Sidebar-brand-title">Junctions</span></a><nav class="Sidebar-nav"><section><a href="/" class="Sidebar-NavLink Sidebar-nav-heading ">Junctions</a><a href="/why-another-router/" class="Sidebar-NavLink  Sidebar-NavLink-active">Why another router?</a><a href="/why-another-static-site-generator/" class="Sidebar-NavLink  ">Why another static generator?</a></section><section><a href="/tutorial/" class="Sidebar-NavLink Sidebar-nav-heading ">Tutorial</a><a href="/tutorial/#Creating-a-react-app" class="Sidebar-HashLink  ">Creating a React app</a><a href="/tutorial/#Templates" class="Sidebar-HashLink  ">Templates</a><a href="/tutorial/#The-JunctionNavigation-Component" class="Sidebar-HashLink  ">The JunctionNavigation component</a><a href="/tutorial/#Junctions-and-Pages" class="Sidebar-HashLink  ">Junctions and Pages</a><a href="/tutorial/#Rendering-Content" class="Sidebar-HashLink  ">Rendering content</a><a href="/tutorial/#Links" class="Sidebar-HashLink  ">Links</a><a href="/tutorial/#Markdown-Components" class="Sidebar-HashLink  ">Markdown components</a><a href="/tutorial/#Split-Content" class="Sidebar-HashLink  ">Split content</a><a href="/tutorial/#Static-Builds" class="Sidebar-HashLink  ">Static builds</a></section><section><div class="Sidebar-nav-heading">Guides</div><a href="/static-sites-with-create-react-app/" class="Sidebar-NavLink  ">Static builds with create-react-app</a></section><section class="Sidebar-api"><a href="/api-reference/" class="Sidebar-NavLink Sidebar-nav-heading ">API Reference</a><div class="Sidebar-nav-subheading">Templates</div><a href="/api-reference/#createPageTemplate" class="Sidebar-HashLink  ">createPageTemplate</a><a href="/api-reference/#createRedirectTemplate" class="Sidebar-HashLink  ">createRedirectTemplate</a><a href="/api-reference/#createJunctionTemplate" class="Sidebar-HashLink  ">createJunctionTemplate</a><div class="Sidebar-nav-subheading">Components</div><div class="Sidebar-ComponentLink"><a href="/api-reference/#JunctionActiveChild" class="Sidebar-HashLink  ">&lt;<!-- -->JunctionActiveChild<!-- -->&gt;</a></div><div class="Sidebar-ComponentLink"><a href="/api-reference/#JunctionNavigation" class="Sidebar-HashLink  ">&lt;<!-- -->JunctionNavigation<!-- -->&gt;</a></div><div class="Sidebar-ComponentLink"><a href="/api-reference/#Link" class="Sidebar-HashLink  ">&lt;<!-- -->Link<!-- -->&gt;</a></div><div class="Sidebar-nav-subheading">Types</div><a href="/api-reference/#Junction" class="Sidebar-HashLink  ">Junction</a><a href="/api-reference/#Page" class="Sidebar-HashLink  ">Page</a></section><section><a href="https://github.com/jamesknelson/junctions" class="Sidebar-NavLink Sidebar-nav-heading ">GitHub »</a></section></nav></div><button class="App-nav-hamburger"><div class="App-nav-hamburger-icon"></div></button></div><main class="App-content"><div class="MDXWrapper"><div class="
+    MDXWrapper-LoadingIndicator
+    MDXWrapper-LoadingIndicator-done
+  "></div><div class="MDXWrapper-ready"><div><h1 id="Why-another-router" class="MDXWrapper-heading">Why another router?<a href="#Why-another-router" class="MDXWrapper-heading-link ">#</a></h1><p>Junctions is a router for React. But of course, <a href="https://reacttraining.com/react-router/" class=" ">react-router</a> already exists. So why build another?</p><h2 id="A-difference-in-philosophy" class="MDXWrapper-heading">A difference in philosophy<a href="#A-difference-in-philosophy" class="MDXWrapper-heading-link ">#</a></h2><p>Junctions is laser-focused on providing the best routing experience <em>for the web</em>. It was designed to provide fast, accessible routing for large web applications with publicly accessible content. This philosophy stems from its use as the build system for <a href="https://reactarmory.com" class=" ">React Armory</a>.</p><p>In comparison, react-router is focused on providing routing <em>for any React application</em>. These applications may be web apps, native apps, or even VR apps. As a result, react-router is more limited in its web-focused features, but does provide better support for Android and iPhone apps.</p><h2 id="Features" class="MDXWrapper-heading">Features<a href="#Features" class="MDXWrapper-heading-link ">#</a></h2><p>If you’re building a web app, Junctions provides a number of features that you’d need to implement manually with react-router.</p><p>If you’re building an iPhone or Android app, you can still use Junctions; but react-router gives you more of a head start.</p><table class="features-table"><tbody><tr><th></th><th class="junctions">Junctions</th><th class="react-router">react-router</th></tr><tr><th>Scroll management</th><td class="yes"></td><td></td></tr><tr><th>Page title management</th><td class="yes"></td><td></td></tr><tr><th>Static rendering with code splitting</th><td class="yes"></td><td></td></tr><tr><th>Ready-made native components</th><td></td><td class="yes"></td></tr></tbody></table><h2 id="Static-rendering-with-code-splitting" class="MDXWrapper-heading">Static rendering with code splitting<a href="#Static-rendering-with-code-splitting" class="MDXWrapper-heading-link ">#</a></h2><p>In particular, Junctions makes it ridiculously easy to add code splits, even with static or server-side rendering.</p><p>This is invaluable for large web apps and websites:</p><ul><li>Without code splitting, you’ll soon run into problems with huge JavaScript bundles, slowing initial response times and severely degrading mobile user’s experience.</li><li>Without static rendering, your app’s JavaScript needs to be downloaded and parsed before your users see anything, and you’ll have no control over how your pages appear when shared via social media.</li></ul><p>React-router’s <a href="https://reacttraining.com/react-router/web/guides/code-splitting" class=" ">documentation</a> makes a point of saying it won’t support both of these:</p><blockquote><p>We determined that google was indexing our sites well enough for our needs without server rendering, so we dropped it in favor of code-splitting + service worker caching. Godspeed those who attempt the server-rendered, code-split apps.</p></blockquote><p>With Junctions, all it takes to statically render code splits is a <code>create-react-app</code> project, and the ESNext <code>import()</code> proposal.</p><p>In fact, the page you’re reading now uses static rendering with code splitting. Here’s what it looks like:</p><pre class="language-jsx"><code><span class="token keyword">export</span> <span class="token keyword">const</span> AppJunctionTemplate <span class="token operator">=</span> <span class="token function">createJunctionTemplate</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    children<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">'/why-another-router'</span><span class="token punctuation">:</span> <span class="token function">createPageTemplate</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            title<span class="token punctuation">:</span> <span class="token string">'Why another Router?'</span><span class="token punctuation">,</span>
+            component<span class="token punctuation">:</span> MDXWrapper<span class="token punctuation">,</span>
+            getContent<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span>
+                <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'!babel-loader!mdx-loader!./pages/why-another-router.md'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            meta<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                socialTitle<span class="token punctuation">:</span> <span class="token string">'react-router vs. Junctions'</span><span class="token punctuation">,</span>
+                socialDescription<span class="token punctuation">:</span>
+                    <span class="token string">"While react-router gives you the flexibility to work with "</span><span class="token operator">+</span>
+                    <span class="token string">"native apps, Junctions is laser-focused on routing for "</span><span class="token operator">+</span>
+                    <span class="token string">"websites and web apps."</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre><p>Neat. But why build websites with Junction when you could use Gatsby?</p><p><a href="/why-another-static-site-generator" class=" ">Do we really need another static site generator? »</a></p></div></div></div></main></div></div></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  <script src="/static/js/main.ab0ffaad.js"></script><script src="/static/js/0.b1a23f46.chunk.js"></script><script>window.JunctionsStaticApp.main()</script>
+</html>

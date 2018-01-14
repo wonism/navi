@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#10b068">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:site_name" content="Junctions" />
+    <meta property="og:type" content="article" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="james_k_nelson" />
+    <meta property="og:image" content="https://junctions.js.org/logo.png?2" />
+    <meta name="twitter:image" content="https://junctions.js.org/logo.png?2" />
+    <meta property="og:title" content="Static rendering for create-react-app" />
+    <meta name="twitter:title" content="Static rendering for create-react-app" />
+    <meta name="description" content="Build static HTML files for your create-react-app project, in just five steps!" />
+    <meta property="og:description" content="Build static HTML files for your create-react-app project, in just five steps!" />
+    <meta name="twitter:description" content="Build static HTML files for your create-react-app project, in just five steps!" />
+    
+    <title>Static sites with create-react-app and Junctions</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/main.8da2f98a.css" />
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"><div id="JUNCTIONS_STATIC" data-reactroot=""><div class="App"><div class="App-nav "><div class="Sidebar App-nav-sidebar"><a href="/" class="Sidebar-brand "><img src="/static/media/logo.b0b8d42b.svg" class="Sidebar-brand-logo" alt="logo"/><span class="Sidebar-brand-title">Junctions</span></a><nav class="Sidebar-nav"><section><a href="/" class="Sidebar-NavLink Sidebar-nav-heading ">Junctions</a><a href="/why-another-router/" class="Sidebar-NavLink  ">Why another router?</a><a href="/why-another-static-site-generator/" class="Sidebar-NavLink  ">Why another static generator?</a></section><section><a href="/tutorial/" class="Sidebar-NavLink Sidebar-nav-heading ">Tutorial</a><a href="/tutorial/#Creating-a-react-app" class="Sidebar-HashLink  ">Creating a React app</a><a href="/tutorial/#Templates" class="Sidebar-HashLink  ">Templates</a><a href="/tutorial/#The-JunctionNavigation-Component" class="Sidebar-HashLink  ">The JunctionNavigation component</a><a href="/tutorial/#Junctions-and-Pages" class="Sidebar-HashLink  ">Junctions and Pages</a><a href="/tutorial/#Rendering-Content" class="Sidebar-HashLink  ">Rendering content</a><a href="/tutorial/#Links" class="Sidebar-HashLink  ">Links</a><a href="/tutorial/#Markdown-Components" class="Sidebar-HashLink  ">Markdown components</a><a href="/tutorial/#Split-Content" class="Sidebar-HashLink  ">Split content</a><a href="/tutorial/#Static-Builds" class="Sidebar-HashLink  ">Static builds</a></section><section><div class="Sidebar-nav-heading">Guides</div><a href="/static-sites-with-create-react-app/" class="Sidebar-NavLink  Sidebar-NavLink-active">Static builds with create-react-app</a></section><section class="Sidebar-api"><a href="/api-reference/" class="Sidebar-NavLink Sidebar-nav-heading ">API Reference</a><div class="Sidebar-nav-subheading">Templates</div><a href="/api-reference/#createPageTemplate" class="Sidebar-HashLink  ">createPageTemplate</a><a href="/api-reference/#createRedirectTemplate" class="Sidebar-HashLink  ">createRedirectTemplate</a><a href="/api-reference/#createJunctionTemplate" class="Sidebar-HashLink  ">createJunctionTemplate</a><div class="Sidebar-nav-subheading">Components</div><div class="Sidebar-ComponentLink"><a href="/api-reference/#JunctionActiveChild" class="Sidebar-HashLink  ">&lt;<!-- -->JunctionActiveChild<!-- -->&gt;</a></div><div class="Sidebar-ComponentLink"><a href="/api-reference/#JunctionNavigation" class="Sidebar-HashLink  ">&lt;<!-- -->JunctionNavigation<!-- -->&gt;</a></div><div class="Sidebar-ComponentLink"><a href="/api-reference/#Link" class="Sidebar-HashLink  ">&lt;<!-- -->Link<!-- -->&gt;</a></div><div class="Sidebar-nav-subheading">Types</div><a href="/api-reference/#Junction" class="Sidebar-HashLink  ">Junction</a><a href="/api-reference/#Page" class="Sidebar-HashLink  ">Page</a></section><section><a href="https://github.com/jamesknelson/junctions" class="Sidebar-NavLink Sidebar-nav-heading ">GitHub »</a></section></nav></div><button class="App-nav-hamburger"><div class="App-nav-hamburger-icon"></div></button></div><main class="App-content"><div class="MDXWrapper"><div class="
+    MDXWrapper-LoadingIndicator
+    MDXWrapper-LoadingIndicator-done
+  "></div><div class="MDXWrapper-ready"><div><h1 id="Static-builds-with-create-react-app" class="MDXWrapper-heading">Static builds with create-react-app<a href="#Static-builds-with-create-react-app" class="MDXWrapper-heading-link ">#</a></h1><p>This article will guide you through adding static builds to a fresh create-react-app project.</p><p>Before getting started, make sure you’ve installed the dependencies:</p><pre class="language-bash"><code><span class="token function">npm</span> <span class="token function">install</span> --save junctions react-junctions junctions-static
+</code></pre><h2 id="1.-Export-a-Junction-from-App.js" class="MDXWrapper-heading">1. Export a Junction from <code>App.js</code><a href="#1.-Export-a-Junction-from-App.js" class="MDXWrapper-heading-link ">#</a></h2><p>To build a static website with <code>junctions-static</code>, you’ll first need to define your app’s route templates with <a href="/api-reference/#createJunctionTemplate" class=" "><code>createJunctionTemplate</code></a> and <a href="/api-reference/#createPageTemplate" class=" "><code>createPageTemplate</code></a>.</p><p>There are a number of approaches you can use to structure your route templates, but I recommend starting out by exporting a root <code>AppJunctionTemplate</code> from <code>App.js</code>. Here’s an example; for more information on defining templates see the documentation on <code>createJunctionTemplate</code> and <code>createPageTemplate</code>.</p><pre class="language-jsx"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> createJunctionTemplate<span class="token punctuation">,</span> createPageTemplate <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'junctions'</span>
+<span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span>
+<span class="token keyword">import</span> logo <span class="token keyword">from</span> <span class="token string">'./logo.svg'</span>
+<span class="token keyword">import</span> <span class="token string">'./App.css'</span>
+
+
+<span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">renderChild</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// The `junction` prop receives information on which of the App junction's</span>
+    <span class="token comment">// children corresponds to the current URL.</span>
+    <span class="token keyword">let</span> junction <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>junction
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>junction<span class="token punctuation">.</span>activeChild<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> React<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span>junction<span class="token punctuation">.</span>activeChild<span class="token punctuation">.</span>component<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">[</span>junction<span class="token punctuation">.</span>activeChild<span class="token punctuation">.</span>type<span class="token punctuation">]</span><span class="token punctuation">:</span> junction<span class="token punctuation">.</span>activeChild<span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><span class="token number">404</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>App<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>App-header<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>logo<span class="token punctuation">}</span></span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>App-logo<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>logo<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>App-title<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Welcome to React<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>header</span><span class="token punctuation">></span></span>
+
+        <span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">renderChild</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> AppJunctionTemplate <span class="token operator">=</span> <span class="token function">createJunctionTemplate</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  children<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">'/'</span><span class="token punctuation">:</span> <span class="token function">createPageTemplate</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      title<span class="token punctuation">:</span> <span class="token string">'Welcome to React'</span><span class="token punctuation">,</span>
+      component<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>App-intro<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+          To <span class="token keyword">get</span> started<span class="token punctuation">,</span> edit <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>code</span><span class="token punctuation">></span></span>src<span class="token operator">/</span>App<span class="token punctuation">.</span>js<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>code</span><span class="token punctuation">></span></span> and save to reload<span class="token punctuation">.</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  component<span class="token punctuation">:</span> App<span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre><h2 id="2.-Update-index.js" class="MDXWrapper-heading">2. Update <code>index.js</code><a href="#2.-Update-index.js" class="MDXWrapper-heading-link ">#</a></h2><p>In a stock create-react-app project, <code>index.js</code> just imports the App component<!-- -->and renders it. However, you’ll need to make a few changes to get static builds<!-- -->working:</p><ol><li><p><strong>Replace the <code>&lt;App&gt;</code> element with a <a href="/api-reference/#JunctionNavigation" class=" "><code>&lt;JunctionNavigation&gt;</code></a> element.</strong></p><p>The <code>&lt;JunctionNavigation&gt;</code> component takes the junction template from<code>App.js</code>, and uses it to create the <code>junction</code> prop that contains your<!-- -->app’s current navigation state.</p><p>This component also keeps the page title up to date, handles scrolling,<!-- -->loads split bundles when required, and follows any redirects it encounters.</p><p>For details on how to implement this, see the example below.</p></li><li><p><strong>Use <code>ReactDOM.hydrate</code> in production.</strong></p><p>This method is just like <code>ReactDOM.render</code>, but it lets React know that the<!-- -->content has been statically rendered, and is already available in the DOM.</p></li><li><p><strong>Add a <code>main()</code> function.</strong></p><p>Junctions keeps track of the dependencies of each of your site’s pages, and<!-- -->only starts the app once those dependencies have been loaded.</p><p>Because of this, you’ll need to move your app’s bootstrap code into a <code>main()</code>function, and only call it directly when in create-react-app’s development<!-- -->environment.</p></li><li><p><strong>Export our root junction, and a <code>main()</code> function.</strong></p><p>The junctions build tool needs access to your app’s junction template and<!-- -->its <code>main</code> function.</p></li></ol><p>Here’s what this looks like in practice:</p><pre class="language-js"><code><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
+<span class="token keyword">import</span> ReactDOM <span class="token keyword">from</span> <span class="token string">'react-dom'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> AppJunctionTemplate <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./App'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> JunctionNavigation <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-junctions'</span>
+<span class="token keyword">import</span> <span class="token string">'./index.css'</span>
+
+<span class="token keyword">function</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// The `&lt;JunctionNavigation>` component re-renders the app each time</span>
+    <span class="token comment">// the browser's location changes.</span>
+    <span class="token comment">//</span>
+    <span class="token comment">// It renders the `component` property of the template defined in App.js,</span>
+    <span class="token comment">// passing in a `junction` prop with the app's navigation state.</span>
+    <span class="token keyword">let</span> content <span class="token operator">=</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>JunctionNavigation</span>
+            <span class="token attr-name">root</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>AppJunctionTemplate<span class="token punctuation">}</span></span>
+            <span class="token attr-name">waitForInitialContent</span>
+        <span class="token punctuation">/></span></span>
+
+    <span class="token comment">// React requires us to call "hydrate" if the content already exists in</span>
+    <span class="token comment">// the DOM, which is the case for statically rendered pages.</span>
+    <span class="token keyword">let</span> node <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'root'</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>NODE_ENV <span class="token operator">===</span> <span class="token string">'production'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        ReactDOM<span class="token punctuation">.</span><span class="token function">hydrate</span><span class="token punctuation">(</span>content<span class="token punctuation">,</span> node<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>content<span class="token punctuation">,</span> node<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token comment">// When building the static version of the app, we don't want to run the</span>
+<span class="token comment">// `main` function, as there is no DOM to render to.</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>NODE_ENV <span class="token operator">!==</span> <span class="token string">'production'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token comment">// Make the `root` template and `main` function available to junctions-static,</span>
+<span class="token comment">// so it knows what to render and how to start the app.</span>
+window<span class="token punctuation">.</span>JunctionsStaticApp <span class="token operator">=</span> <span class="token punctuation">{</span>
+    root<span class="token punctuation">:</span> AppJunctionTemplate<span class="token punctuation">,</span>
+    main<span class="token punctuation">:</span> main
+<span class="token punctuation">}</span>
+</code></pre><h2 id="3.-Update-the-build-script-in-your-package.json" class="MDXWrapper-heading">3. Update the <code>build</code> script in your <code>package.json</code><a href="#3.-Update-the-build-script-in-your-package.json" class="MDXWrapper-heading-link ">#</a></h2><p>To build your app’s HTML files, you’ll need to call the <code>junctions-static</code>tool once <code>react-scripts build</code> has completed:</p><pre class="language-js"><code><span class="token string">"build"</span><span class="token punctuation">:</span> <span class="token string">"react-scripts build &amp;&amp; junctions-static build -m build/static/js/main.*.js -r create-react-app"</span><span class="token punctuation">,</span>
+</code></pre><p>This tool takes the output of create-react-app’s standard<!-- -->build process, and builds a HTML file for each of the pages under the junction<!-- -->template at <code>window.JunctionsStaticApp.root</code>.</p><p><em>Did you see the <code>-r create-react-app</code> argument? This tells junctions-static to use a build-in HTML renderer that works with create-react-app. But what if you need more flexibility, you can pass a custom script that renders each URL to a HTML file.</em></p><h2 id="4.-Add-the-PAGE_TITLE-variable-to-index.html" class="MDXWrapper-heading">4. Add the <code>%PAGE_TITLE%</code> variable to <code>index.html</code><a href="#4.-Add-the-PAGE_TITLE-variable-to-index.html" class="MDXWrapper-heading-link ">#</a></h2><p>To make sure your static pages contain the correct title, replace the <code>&lt;title&gt;</code>tag in <code>index.html</code> with this one:</p><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>%PAGE_TITLE%<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+</code></pre><h2 id="5.-That&#x27;s-it!" class="MDXWrapper-heading">5. That’s it!<a href="#5.-That&#x27;s-it!" class="MDXWrapper-heading-link ">#</a></h2><p>To build your site, just type <code>npm run build</code>, as before!</p></div></div></div></main></div></div></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  <script src="/static/js/main.ab0ffaad.js"></script><script src="/static/js/3.8546ff9d.chunk.js"></script><script>window.JunctionsStaticApp.main()</script>
+</html>
